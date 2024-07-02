@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian College of Pediatrics, IAP Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .application-form {
+      background-color: #fff;
+      max-width: 600px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .application-form h1,
+    .application-form h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .application-form label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .application-form input[type="text"],
+    .application-form input[type="email"],
+    .application-form input[type="tel"],
+    .application-form input[type="date"],
+    .application-form input[type="file"],
+    .application-form select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .application-form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .application-form button:hover {
+      background-color: #45a049;
+    }
+
+    /* Progress Bar Styles */
+    .progress-bar {
+      margin-bottom: 20px;
+      background-color: #ddd;
+      border-radius: 5px;
+      height: 20px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      background-color: #4CAF50;
+      width: 0;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="application-form">
+    <h1>Exam Registration Form</h1>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="progress" id="progress" style="width: 0;"></div>
+    </div>
+    
+    <!-- Name Section -->
+    <section id="name-section">
+      <h2>Name (Please mention as in the ID document)</h2>
+      <form id="form-name">
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required>
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleName" name="middleName">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <label for="dob">Date of birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        <label for="photograph">Upload photograph (CIPL):</label>
+        <input type="file" id="photograph" name="photograph" accept="image/*" required>
+        <button type="button" onclick="nextSection('name-section')">Next Section</button>
+      </form>
+    </section>
+    
+    <!-- Contact Details Section -->
+    <section id="contact-details-section" style="display: none;">
+      <h2>Contact details</h2>
+      <form id="form-contact">
+        <label for="address">Address for Correspondence:</label>
+        <input type="text" id="address" name="address" required>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required>
+        <label for="pin">PIN Code:</label>
+        <input type="text" id="pin" name="pin" required>
+        <label for="email1">Email 1:</label>
+        <input type="email" id="email1" name="email1" required>
+        <label for="email2">Email 2:</label>
+        <input type="email" id="email2" name="email2">
+        <label for="phone1">Phone Number 1:</label>
+        <input type="tel" id="phone1" name="phone1" required>
+        <label for="phone2">Phone Number 2:</label>
+        <input type="tel" id="phone2" name="phone2">
+        <button type="button" onclick="nextSection('contact-details-section')">Next Section</button>
+      </form>
+    </section>
+    
+    <!-- Identification Document Section -->
+    <section id="identification-section" style="display: none;">
+      <h2>Identification document</h2>
+      <form id="form-identification">
+        <label for="aadhaar">Aadhaar number:</label>
+        <input type="text" id="aadhaar" name="aadhaar">
+        <label for="passport">Passport number:</label>
+        <input type="text" id="passport" name="passport">
+        <button type="button" onclick="nextSection('identification-section')">Next Section</button>
+      </form>
+    </section>
+    
+    <!-- Membership Number Section -->
+    <section id="membership-section" style="display: none;">
+      <h2>Central IAP Membership number</h2>
+      <form id="form-membership">
+        <label for="membershipNumber">Membership Number:</label>
+        <input type="text" id="membershipNumber" name="membershipNumber">
+        <button type="button" onclick="nextSection('membership-section')">Next Section</button>
+      </form>
+    </section>
+    
+    <!-- Center Preference Section -->
+    <section id="center-preference-section" style="display: none;">
+      <h2>Choice of Center for examination</h2>
+      <form id="form-center">
+        <label for="centerPreference1">Center Preference 1:</label>
+        <select id="centerPreference1" name="centerPreference1">
+          <option value="">Select Center</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Bangaluru">Bangaluru</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Hyderabad">Hyderabad</option>
+        </select>
+        <label for="centerPreference2">Center Preference 2:</label>
+        <select id="centerPreference2" name="centerPreference2">
+          <option value="">Select Center</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Bangaluru">Bangaluru</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Hyderabad">Hyderabad</option>
+        </select>
+        <button type="button" onclick="nextSection('center-preference-section')">Next Section</button>
+      </form>
+    </section>
+    
+    <!-- Fellowship Courses Section -->
+    <section id="courses-section" style="display: none;">
+      <h2>Preference of Fellowship Courses</h2>
+      <form id="form-courses">
+        <p>Enter up to 10 preferences in the order of preference.</p>
+        <label for="preference1">Preference 1:</label>
+        <input type="text" id="preference1" name="preference1">
+        <label for="preference2">Preference 2:</label>
+        <input type="text" id="preference2" name="preference2">
+        <label for="preference3">Preference 3:</label>
+        <input type="text" id="preference3" name="preference3">
+        <!-- Add more preferences as needed -->
+        <button type="button" onclick="submitForm()">Submit</button>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    // Function to show next section and hide current section
+    function nextSection(currentSectionId) {
+      document.getElementById(currentSectionId).style.display = 'none';
+      const nextSectionId = getNextSectionId(currentSectionId);
+      document.getElementById(nextSectionId).style.display = 'block';
+      updateProgressBar();
+    }
+
+    // Function to get the ID of the next section based on current section ID
+    function getNextSectionId(currentSectionId) {
+      const sections = [
+        'name-section',
+        'contact-details-section',
+        'identification-section',
+        'membership-section',
+        'center-preference-section',
+        'courses-section'
+      ];
+      const currentIndex = sections.indexOf(currentSectionId);
+      if (currentIndex < sections.length - 1) {
+        return sections[currentIndex + 1];
+      }
+      return null;
+    }
+
+    // Function to update progress bar
+    function updateProgressBar() {
+      const sections = [
+        'name-section',
+        'contact-details-section',
+        'identification-section',
+        'membership-section',
+        'center-preference-section',
+        'courses-section'
+      ];
+      const currentSectionId = sections.find(section => document.getElementById(section).style.display !== 'none');
+      const currentIndex = sections.indexOf(currentSectionId);
+      const progress = ((currentIndex + 1) / sections.length) * 100;
+      document.getElementById('progress').style.width = progress + '%';
+    }
+
+    // Function to submit form (placeholder)
+    function submitForm() {
+      alert('Form submitted successfully!');
+      // Add actual form submission logic here
+    }
+  </script>
+</body>
+</html>
